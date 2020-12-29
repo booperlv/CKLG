@@ -57,7 +57,7 @@ form {
 	margin: 0;
 }
 #mainforkeyboard input.key:hover{
-	background-color: #c7c7c7eb;
+	background-color: #ecececeb;
 }
 #ShiftedKey, #CapsLockedKey, #AltedKey, #AltGRKey {
 	display: none;
@@ -76,17 +76,48 @@ form {
 }
 #mainforkeyboard input.key.ShiftRight {
 	width: 18.315%;
+	color: black !important;
 }
 #mainforkeyboard input.key.ControlLeft, #mainforkeyboard input.key.MetaLeft, #mainforkeyboard input.key.AltLeft,
 #mainforkeyboard input.key.AltRight, #mainforkeyboard input.key.MetaRight, #mainforkeyboard input.key.ContextMenu,
 #mainforkeyboard input.key.ControlRight {
 	width: 8.325%;
+	color: black !important;
 }
 #mainforkeyboard input.key.Space {
 	width: 41.625%;
+
+}
+#mainforkeyboard input.key:focus {
+	outline: none !important;
+	border: 2px solid rgb(13, 187, 144);
+	box-shadow: 0 0 10px #719ECE;
 }
 
-
+#ClearKeyState {
+	display: inline;
+	border: 1px solid black;
+	background-color:rgb(155, 155, 155);
+	width: 11vw;
+	height: 3vw;
+	margin-left: 2%;
+	color: rgb(255, 255, 255);
+	border-radius: 8%;
+	font-size: 1.2vw;
+	font-family: Oxygen, Roboto;
+}
+#AutoShiftCaps {
+	display: inline-block;
+	border: 1px solid black;
+	background-color:rgb(34, 86, 136);
+	width: 20vw;
+	height: 5vw;
+	margin-left: 3%;
+	color: rgb(255, 255, 255);
+	border-radius: 8%;
+	font-size: 1.5vw;
+	font-family: Oxygen, Roboto;
+}
 #mainsubmitbtn {
 	position: absolute;
 	display: block;

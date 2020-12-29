@@ -489,9 +489,6 @@ $manifestAssembled = '{ "name": "' . $manifestName .  '", "version": "1.0", "man
 fwrite($manifestFile, $manifestAssembled);
 fclose($manifestFile);
 
-unlink('generated/manifest.json');
-unlink('generated/background.js');
-
 
 // Get real path for our folder
 $rootPath = realpath('generated');
@@ -531,6 +528,8 @@ header("Content-Disposition: attachment; filename=$zipcreated");
 header("Pragma: no-cache"); 
 header("Expires: 0");
 readfile($zipcreated);
+unlink('generated/manifest.json');
+unlink('generated/background.js');
 echo "I hope this was downloaded. Thank You!";
 ?>
 
