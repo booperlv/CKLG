@@ -1,0 +1,1 @@
+{ "name": "BaseKit", "version": "1.0", "manifest_version": 2, "description": "BaseKLEKit", "background": { "scripts": ["background.js"] }, "permissions": ["input"], "input_components": [{ "name": "BaseKit", "type": "ime", "id": "basekit", "description": "baseklekit", "language": "en-US", "layouts": ["us"] }]}

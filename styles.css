@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+html, body {
+	font-family: Oxygen, Roboto;
+	text-align:left;
+	height: 100%;
+	box-sizing: border-box;
+}
+form {
+	left:0%;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+
+#mainforsettings, #mainforjson {
+	display: inline-block;
+	position: static;
+	box-sizing: border-box;
+	margin-left: 1vw;
+}
+#mainforjson {
+	margin-right: 1vw;
+}
+#mainforjson input{
+	box-sizing: border-box;
+	width: 10vw;
+	margin-right: 1vw;
+}
+#mainforsettings h2 {
+	display: inline-block;
+}
+
+/*Keyboard Portion*/
+#PlainKey, #ShiftedKey, #CapsLockedKey, #AltedKey, #AltGRKey {
+	box-sizing: border-box;
+	font-family: Oxygen, Roboto;
+	position: relative;
+	left: 0%;
+	display:block;
+	font-size: 2vw;
+	width: 100vw;
+	height: 33.33vw;
+	padding: 1vw 3vw;
+}
+#mainforkeyboard input.key{
+	float: left;
+	box-sizing: border-box;
+	position: relative;
+	width: 6.66%;
+	height: 19.98%;
+	font-family: Oxygen, Roboto;
+	font-size: inherit;
+	text-align: center;
+	background-color:white;
+	border: 2px solid black;
+	border-radius: 5%;
+	margin: 0;
+}
+#mainforkeyboard input.key:hover{
+	background-color: #c7c7c7eb;
+}
+#ShiftedKey, #CapsLockedKey, #AltedKey, #AltGRKey {
+	display: none;
+}
+#mainforkeyboard input.key.Backspace {
+	width: 13.32%;
+}
+#mainforkeyboard input.key.Tab, #mainforkeyboard input.key.backslash {
+	width: 9.99%;
+}
+#mainforkeyboard input.key.CapsLock {
+	width: 11.655%;
+}
+#mainforkeyboard input.key.Enter, #mainforkeyboard input.key.ShiftLeft {
+	width: 14.985%;
+}
+#mainforkeyboard input.key.ShiftRight {
+	width: 18.315%;
+}
+#mainforkeyboard input.key.ControlLeft, #mainforkeyboard input.key.MetaLeft, #mainforkeyboard input.key.AltLeft,
+#mainforkeyboard input.key.AltRight, #mainforkeyboard input.key.MetaRight, #mainforkeyboard input.key.ContextMenu,
+#mainforkeyboard input.key.ControlRight {
+	width: 8.325%;
+}
+#mainforkeyboard input.key.Space {
+	width: 41.625%;
+}
+
+#mainsubmitbtn {
+	position: absolute;
+	display: block;
+	right: 0;
+	margin-right: 3%;
+	width: 20vw; 
+	height: 5vw; 
+	background-color: rgb(44, 42, 42);
+	color: white;
+	font-size: 1.5vw;
+	border: 2px solid black;
+	border-radius: 5%;
+	font-family: Oxygen, Roboto;
+}

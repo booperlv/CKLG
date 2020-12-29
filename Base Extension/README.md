@@ -1,0 +1,1 @@
+This extension is the base example for the keyboard layout creator. The keyboard layout creator chooses the values for items in an array, and the rest of the extension is written onto the generated files. The main functionality of this extension came from the google extra keyboard git, but I modified and added features to make this website completely functional.

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible">
+	<link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+	<form action="GenerateKey.php" method="POST" name="collectData" id="collectData">
+		<div id="mainforjson">
+			<h2> JSON INPUTS </h2>
+			<label for="JsonName"> Name </label>
+			<input class="jsonbox" id="JsonName" name='JsonName' placeholder="Input JSON name here...">
+			<label for="JsonDescription"> Description </label>
+			<input class="jsonbox" id="JsonDescription" name="JsonDescription" placeholder="Input JSON description here...">
+		</div>
+		<div id="mainforsettings">
+			<h2> LAYOUT CREATION </h2> 
+			<label for="KeyboardSize"> Keyboard Size </label>
+			<input type="range" id="KeyboardSize" name="KeyboardSize" min="12" max="20" value="19" step="0.5">
+			<label for="KeyboardFontSize"> Keyboard Font Size </label>
+			<input type="range" id="KeyboardFontSize" name="KeyboardFontSize" min="0.5" max="4" value="2" step="0.05">
+			<br />
+			<input type="radio" id="PlainState" name="KeyState" checked>
+			<label for="PlainState"> Plain State </label>
+			<input type="radio" id="ShiftState" name="KeyState">
+			<label for="ShiftState"> Shift State </label>
+			<input type="radio" id="CapsState" name="KeyState">
+			<label for="CapsState"> CapsLock State </label>
+			<input type="radio" id="AltState" name="KeyState">
+			<label for="AltState"> Alt State </label>
+			<input type="radio" id="AltGRState" name="KeyState">
+			<label for="AltGRState"> AltGR State </label>
+			<input type="button" id="ClearKeyState" name="ClearKeyState" value="Clear Key Values"> 
+			<br />
+		</div>
+
+		<div id="mainforkeyboard">
+			<div id="PlainKey">
+				<input class="key plain" id="Backquote" name="Backquote" value="`">
+				<input class="key plain" id="Digit1" name="Digit1" value="1">
+				<input class="key plain" id="Digit2" name="Digit2" value="2">
+				<input class="key plain" id="Digit3" name="Digit3" value="3">
+				<input class="key plain" id="Digit4" name="Digit4" value="4">
+				<input class="key plain" id="Digit5" name="Digit5" value="5">
+				<input class="key plain" id="Digit6" name="Digit6" value="6">
+				<input class="key plain" id="Digit7" name="Digit7" value="7">
+				<input class="key plain" id="Digit8" name="Digit8" value="8">
+				<input class="key plain" id="Digit9" name="Digit9" value="9">
+				<input class="key plain" id="Digit0" name="Digit0" value="0">
+				<input class="key plain" id="Minus" name="Minus" value="-">
+				<input class="key plain" id="Equal" name="Equal" value="=">
+				<input class="key plain Backspace" value="Backspace" readonly>
+				<br />
+				<input class="key row2 plain Tab" value="Tab" readonly>
+				<input class="key row2 plain" id="KeyQ" name="KeyQ" value="q">
+				<input class="key row2 plain" id="KeyW" name="KeyW" value="w">
+				<input class="key row2 plain" id="KeyE" name="KeyE" value="e">
+				<input class="key row2 plain" id="KeyR" name="KeyR" value="r">
+				<input class="key row2 plain" id="KeyT" name="KeyT" value="t">
+				<input class="key row2 plain" id="KeyY" name="KeyY" value="y">
+				<input class="key row2 plain" id="KeyU" name="KeyU" value="u">
+				<input class="key row2 plain" id="KeyI" name="KeyI" value="i"> 
+				<input class="key row2 plain" id="KeyO" name="KeyO" value="o">
+				<input class="key row2 plain" id="KeyP" name="KeyP" value="p">
+				<input class="key row2 plain" id="BracketLeft" name="BracketLeft" value="[">
+				<input class="key row2 plain" id="BracketRight" name="BracketRight" value="]">
+				<input class="key row2 plain backslash" id="BackSlash" name="BackSlash" value="\">
+				<br />
+				<input class="key row3 plain CapsLock" value="CapsLock" readonly>
+				<input class="key row3 plain" id="KeyA" name="KeyA" value="a"> 
+				<input class="key row3 plain" id="KeyS" name="KeyS" value="s">
+				<input class="key row3 plain" id="KeyD" name="KeyD" value="d">
+				<input class="key row3 plain" id="KeyF" name="KeyF" value="f">
+				<input class="key row3 plain" id="KeyG" name="KeyG" value="g">
+				<input class="key row3 plain" id="KeyH" name="KeyH" value="h">
+				<input class="key row3 plain" id="KeyJ" name="KeyJ" value="j">
+				<input class="key row3 plain" id="KeyK" name="KeyK" value="k">
+				<input class="key row3 plain" id="KeyL" name="KeyL" value="l">
+				<input class="key row3 plain" id="Semicolon" name="Semicolon" value=";">
+				<input class="key row3 plain" id="Quote" name="Quote" value="'">
+				<input class="key row3 plain Enter" value="Enter" readonly>
+				<br />
+				<input class="key row4 plain ShiftLeft" value="Shift" readonly>
+				<input class="key row4 plain" id="KeyZ" name="KeyZ" value="z">
+				<input class="key row4 plain" id="KeyX" name="KeyX" value="x">
+				<input class="key row4 plain" id="KeyC" name="KeyC" value="c">
+				<input class="key row4 plain" id="KeyV" name="KeyV" value="v">
+				<input class="key row4 plain" id="KeyB" name="KeyB" value="b">
+				<input class="key row4 plain" id="KeyN" name="KeyN" value="n">
+				<input class="key row4 plain" id="KeyM" name="KeyM" value="m">
+				<input class="key row4 plain" id="Comma" name="Comma" value=",">
+				<input class="key row4 plain" id="Period" name="Period" value=".">
+				<input class="key row4 plain" id="Slash" name="Slash" value="/">
+				<input class="key row4 plain ShiftRight" value="Shift" readonly>
+				<br />
+				<input class="key row5 plain ControlLeft" value="Ctrl" readonly>
+				<input class="key row5 plain MetaLeft" value="Win" readonly>
+				<input class="key row5 plain AltLeft" value="Alt" readonly>
+				<input class="key row5 plain Space" value = "" readonly>
+				<input class="key row5 plain AltRight" value="Alt" readonly>
+				<input class="key row5 plain MetaRight" value="Win" readonly>
+				<input class="key row5 plain ContextMenu" value="Menu" readonly>
+				<input class="key row5 plain ControlRight" value="Ctrl" readonly>
+			</div>
+			<div id="ShiftedKey">
+				<input class="key shifted" id="ShiftedBackquote" name="ShiftedBackquote" value="~">
+				<input class="key shifted" id="ShiftedDigit1" name="ShiftedDigit1" value="!">
+				<input class="key shifted" id="ShiftedDigit2" name="ShiftedDigit2" value="@">
+				<input class="key shifted" id="ShiftedDigit3" name="ShiftedDigit3" value="#">
+				<input class="key shifted" id="ShiftedDigit4" name="ShiftedDigit4" value="$">
+				<input class="key shifted" id="ShiftedDigit5" name="ShiftedDigit5" value="%">
+				<input class="key shifted" id="ShiftedDigit6" name="ShiftedDigit6" value="^">
+				<input class="key shifted" id="ShiftedDigit7" name="ShiftedDigit7" value="&">
+				<input class="key shifted" id="ShiftedDigit8" name="ShiftedDigit8" value="*">
+				<input class="key shifted" id="ShiftedDigit9" name="ShiftedDigit9" value="(">
+				<input class="key shifted" id="ShiftedDigit0" name="ShiftedDigit0" value=")">
+				<input class="key shifted" id="ShiftedMinus" name="ShiftedMinus" value="-">
+				<input class="key shifted" id="ShiftedEqual" name="ShiftedEqual" value="+">
+				<input class="key shifted Backspace" value="Backspace" readonly>
+				<br />
+				<input class="key row2 shifted Tab" value="Tab" readonly>
+				<input class="key row2 shifted" id="ShiftedKeyQ" name="ShiftedKeyQ" value="Q">
+				<input class="key row2 shifted" id="ShiftedKeyW" name="ShiftedKeyW" value="W">
+				<input class="key row2 shifted" id="ShiftedKeyE" name="ShiftedKeyE" value="E">
+				<input class="key row2 shifted" id="ShiftedKeyR" name="ShiftedKeyR" value="R">
+				<input class="key row2 shifted" id="ShiftedKeyT" name="ShiftedKeyT" value="T">
+				<input class="key row2 shifted" id="ShiftedKeyY" name="ShiftedKeyY" value="Y">
+				<input class="key row2 shifted" id="ShiftedKeyU" name="ShiftedKeyU" value="U">
+				<input class="key row2 shifted" id="ShiftedKeyI" name="ShiftedKeyI" value="I"> 
+				<input class="key row2 shifted" id="ShiftedKeyO" name="ShiftedKeyO" value="O">
+				<input class="key row2 shifted" id="ShiftedKeyP" name="ShiftedKeyP" value="P">
+				<input class="key row2 shifted" id="ShiftedBracketLeft" name="ShiftedBracketLeft" value="{">
+				<input class="key row2 shifted" id="ShiftedBracketRight" name="ShiftedBracketRight" value="}">
+				<input class="key row2 shifted backslash" id="ShiftedBackSlash" name="ShiftedBackSlash" value="|">
+				<br />
+				<input class="key row3 shifted CapsLock" value="CapsLock" readonly>
+				<input class="key row3 shifted" id="ShiftedKeyA" name="ShiftedKeyA" value="A"> 
+				<input class="key row3 shifted" id="ShiftedKeyS" name="ShiftedKeyS" value="S">
+				<input class="key row3 shifted" id="ShiftedKeyD" name="ShiftedKeyD" value="D">
+				<input class="key row3 shifted" id="ShiftedKeyF" name="ShiftedKeyF" value="F">
+				<input class="key row3 shifted" id="ShiftedKeyG" name="ShiftedKeyG" value="G">
+				<input class="key row3 shifted" id="ShiftedKeyH" name="ShiftedKeyH" value="H">
+				<input class="key row3 shifted" id="ShiftedKeyJ" name="ShiftedKeyJ" value="J">
+				<input class="key row3 shifted" id="ShiftedKeyK" name="ShiftedKeyK" value="K">
+				<input class="key row3 shifted" id="ShiftedKeyL" name="ShiftedKeyL" value="L">
+				<input class="key row3 shifted" id="ShiftedSemicolon" name="ShiftedSemicolon" value=":">
+				<input class="key row3 shifted" id="ShiftedQuote" name="ShiftedQuote" value='"'>
+				<input class="key row3 shifted Enter" value="Enter" readonly>
+				<br />
+				<input class="key row4 shifted ShiftLeft" value="Shift" readonly>
+				<input class="key row4 shifted" id="ShiftedKeyZ" name="ShiftedKeyZ" value="Z">
+				<input class="key row4 shifted" id="ShiftedKeyX" name="ShiftedKeyX" value="X">
+				<input class="key row4 shifted" id="ShiftedKeyC" name="ShiftedKeyC" value="C">
+				<input class="key row4 shifted" id="ShiftedKeyV" name="ShiftedKeyV" value="V">
+				<input class="key row4 shifted" id="ShiftedKeyB" name="ShiftedKeyB" value="B">
+				<input class="key row4 shifted" id="ShiftedKeyN" name="ShiftedKeyN" value="N">
+				<input class="key row4 shifted" id="ShiftedKeyM" name="ShiftedKeyM" value="M">
+				<input class="key row4 shifted" id="ShiftedComma" name="ShiftedComma" value="<">
+				<input class="key row4 shifted" id="ShiftedPeriod" name="ShiftedPeriod" value=">">
+				<input class="key row4 shifted" id="ShiftedSlash" name="ShiftedSlash" value="?">
+				<input class="key row4 shifted ShiftRight" value="Shift" readonly>
+				<br />
+				<input class="key row5 shifted ControlLeft" value="Ctrl" readonly>
+				<input class="key row5 shifted MetaLeft" value="Win" readonly>
+				<input class="key row5 shifted AltLeft" value="Alt" readonly>
+				<input class="key row5 shifted Space" value = "" readonly>
+				<input class="key row5 shifted AltRight" value="Alt" readonly>
+				<input class="key row5 shifted MetaRight" value="Win" readonly>
+				<input class="key row5 shifted ContextMenu" value="Menu" readonly>
+				<input class="key row5 shifted ControlRight" value="Ctrl" readonly>
+			</div>
+			<div id="CapsLockedKey">
+				<input class="key capslocked" id="CapsLockedBackquote" name="CapsLockedBackquote" value="`">
+				<input class="key capslocked" id="CapsLockedDigit1" name="CapsLockedDigit1" value="1">
+				<input class="key capslocked" id="CapsLockedDigit2" name="CapsLockedDigit2" value="2">
+				<input class="key capslocked" id="CapsLockedDigit3" name="CapsLockedDigit3" value="3">
+				<input class="key capslocked" id="CapsLockedDigit4" name="CapsLockedDigit4" value="4">
+				<input class="key capslocked" id="CapsLockedDigit5" name="CapsLockedDigit5" value="5">
+				<input class="key capslocked" id="CapsLockedDigit6" name="CapsLockedDigit6" value="6">
+				<input class="key capslocked" id="CapsLockedDigit7" name="CapsLockedDigit7" value="7">
+				<input class="key capslocked" id="CapsLockedDigit8" name="CapsLockedDigit8" value="8">
+				<input class="key capslocked" id="CapsLockedDigit9" name="CapsLockedDigit9" value="9">
+				<input class="key capslocked" id="CapsLockedDigit0" name="CapsLockedDigit0" value="0">
+				<input class="key capslocked" id="CapsLockedMinus" name="CapsLockedMinus" value="-">
+				<input class="key capslocked" id="CapsLockedEqual" name="CapsLockedEqual" value="=">
+				<input class="key capslocked Backspace" value="Backspace" readonly>
+				<br />
+				<input class="key row2 capslocked Tab" value="Tab" readonly>
+				<input class="key row2 capslocked" id="CapsLockedKeyQ" name="CapsLockedKeyQ" value="Q">
+				<input class="key row2 capslocked" id="CapsLockedKeyW" name="CapsLockedKeyW" value="W">
+				<input class="key row2 capslocked" id="CapsLockedKeyE" name="CapsLockedKeyE" value="E">
+				<input class="key row2 capslocked" id="CapsLockedKeyR" name="CapsLockedKeyR" value="R">
+				<input class="key row2 capslocked" id="CapsLockedKeyT" name="CapsLockedKeyT" value="T">
+				<input class="key row2 capslocked" id="CapsLockedKeyY" name="CapsLockedKeyY" value="Y">
+				<input class="key row2 capslocked" id="CapsLockedKeyU" name="CapsLockedKeyU" value="U">
+				<input class="key row2 capslocked" id="CapsLockedKeyI" name="CapsLockedKeyI" value="I">
+				<input class="key row2 capslocked" id="CapsLockedKeyO" name="CapsLockedKeyO" value="O">
+				<input class="key row2 capslocked" id="CapsLockedKeyP" name="CapsLockedKeyP" value="P">
+				<input class="key row2 capslocked" id="CapsLockedBracketLeft" name="CapsLockedBracketLeft" value="[">
+				<input class="key row2 capslocked" id="CapsLockedBracketRight" name="CapsLockedBracketRight" value="]">
+				<input class="key row2 capslocked backslash" id="CapsLockedBackSlash" name="CapsLockedBackSlash" value="\">
+				<br />
+				<input class="key row3 capslocked CapsLock" value="CapsLock" readonly>
+				<input class="key row3 capslocked" id="CapsLockedKeyA" name="CapsLockedKeyA" value="A">
+				<input class="key row3 capslocked" id="CapsLockedKeyS" name="CapsLockedKeyS" value="S">
+				<input class="key row3 capslocked" id="CapsLockedKeyD" name="CapsLockedKeyD" value="D">
+				<input class="key row3 capslocked" id="CapsLockedKeyF" name="CapsLockedKeyF" value="F">
+				<input class="key row3 capslocked" id="CapsLockedKeyG" name="CapsLockedKeyG" value="G">
+				<input class="key row3 capslocked" id="CapsLockedKeyH" name="CapsLockedKeyH" value="H">
+				<input class="key row3 capslocked" id="CapsLockedKeyJ" name="CapsLockedKeyJ" value="J">
+				<input class="key row3 capslocked" id="CapsLockedKeyK" name="CapsLockedKeyK" value="K">
+				<input class="key row3 capslocked" id="CapsLockedKeyL" name="CapsLockedKeyL" value="L">
+				<input class="key row3 capslocked" id="CapsLockedSemicolon" name="CapsLockedSemicolon" value=";">
+				<input class="key row3 capslocked" id="CapsLockedQuote" name="CapsLockedQuote" value="'">
+				<input class="key row3 capslocked Enter" value="Enter" readonly>
+				<br />
+				<input class="key row4 capslocked ShiftLeft" value="Shift" readonly>
+				<input class="key row4 capslocked" id="CapsLockedKeyZ" name="CapsLockedKeyZ" value="Z">
+				<input class="key row4 capslocked" id="CapsLockedKeyX" name="CapsLockedKeyX" value="X">
+				<input class="key row4 capslocked" id="CapsLockedKeyC" name="CapsLockedKeyC" value="C">
+				<input class="key row4 capslocked" id="CapsLockedKeyV" name="CapsLockedKeyV" value="V">
+				<input class="key row4 capslocked" id="CapsLockedKeyB" name="CapsLockedKeyB" value="B">
+				<input class="key row4 capslocked" id="CapsLockedKeyN" name="CapsLockedKeyN" value="N">
+				<input class="key row4 capslocked" id="CapsLockedKeyM" name="CapsLockedKeyM" value="M">
+				<input class="key row4 capslocked" id="CapsLockedComma" name="CapsLockedComma" value=",">
+				<input class="key row4 capslocked" id="CapsLockedPeriod" name="CapsLockedPeriod" value=".">
+				<input class="key row4 capslocked" id="CapsLockedSlash" name="CapsLockedSlash" value="/">
+				<input class="key row4 capslocked ShiftRight" value="Shift" readonly>
+				<br />
+				<input class="key row5 capslocked ControlLeft" value="Ctrl" readonly>
+				<input class="key row5 capslocked MetaLeft" value="Win" readonly>
+				<input class="key row5 capslocked AltLeft" value="Alt" readonly>
+				<input class="key row5 capslocked Space" value = "" readonly>
+				<input class="key row5 capslocked AltRight" value="Alt" readonly>
+				<input class="key row5 capslocked MetaRight" value="Win" readonly>
+				<input class="key row5 capslocked ContextMenu" value="Menu" readonly>
+				<input class="key row5 capslocked ControlRight" value="Ctrl" readonly>
+			</div>
+			<div id="AltedKey">
+				<input class="key alted" id="AltedBackquote" name="AltedBackquote">
+				<input class="key alted" id="AltedDigit1" name="AltedDigit1">
+				<input class="key alted" id="AltedDigit2" name="AltedDigit2">
+				<input class="key alted" id="AltedDigit3" name="AltedDigit3">
+				<input class="key alted" id="AltedDigit4" name="AltedDigit4">
+				<input class="key alted" id="AltedDigit5" name="AltedDigit5">
+				<input class="key alted" id="AltedDigit6" name="AltedDigit6">
+				<input class="key alted" id="AltedDigit7" name="AltedDigit7">
+				<input class="key alted" id="AltedDigit8" name="AltedDigit8">
+				<input class="key alted" id="AltedDigit9" name="AltedDigit9">
+				<input class="key alted" id="AltedDigit0" name="AltedDigit0">
+				<input class="key alted" id="AltedMinus" name="AltedMinus">
+				<input class="key alted" id="AltedEqual" name="AltedEqual">
+				<input class="key alted Backspace" value="Backspace" readonly>
+				<br />
+				<input class="key row2 alted Tab" value="Tab" readonly>
+				<input class="key row2 alted" id="AltedKeyQ" name="AltedKeyQ">
+				<input class="key row2 alted" id="AltedKeyW" name="AltedKeyW">
+				<input class="key row2 alted" id="AltedKeyE" name="AltedKeyE">
+				<input class="key row2 alted" id="AltedKeyR" name="AltedKeyR">
+				<input class="key row2 alted" id="AltedKeyT" name="AltedKeyT">
+				<input class="key row2 alted" id="AltedKeyY" name="AltedKeyY">
+				<input class="key row2 alted" id="AltedKeyU" name="AltedKeyU">
+				<input class="key row2 alted" id="AltedKeyI" name="AltedKeyI"> 
+				<input class="key row2 alted" id="AltedKeyO" name="AltedKeyO">
+				<input class="key row2 alted" id="AltedKeyP" name="AltedKeyP">
+				<input class="key row2 alted" id="AltedBracketLeft" name="AltedBracketLeft">
+				<input class="key row2 alted" id="AltedBracketRight" name="AltedBracketRight">
+				<input class="key row2 alted backslash" id="AltedBackSlash" name="AltedBackSlash">
+				<br />
+				<input class="key row3 alted CapsLock" value="CapsLock" readonly>
+				<input class="key row3 alted" id="AltedKeyA" name="AltedKeyA"> 
+				<input class="key row3 alted" id="AltedKeyS" name="AltedKeyS">
+				<input class="key row3 alted" id="AltedKeyD" name="AltedKeyD">
+				<input class="key row3 alted" id="AltedKeyF" name="AltedKeyF">
+				<input class="key row3 alted" id="AltedKeyG" name="AltedKeyG">
+				<input class="key row3 alted" id="AltedKeyH" name="AltedKeyH">
+				<input class="key row3 alted" id="AltedKeyJ" name="AltedKeyJ">
+				<input class="key row3 alted" id="AltedKeyK" name="AltedKeyK">
+				<input class="key row3 alted" id="AltedKeyL" name="AltedKeyL">
+				<input class="key row3 alted" id="AltedSemicolon" name="AltedSemicolon">
+				<input class="key row3 alted" id="AltedQuote" name="AltedQuote">
+				<input class="key row3 alted Enter" value="Enter" readonly>
+				<br />
+				<input class="key row4 alted ShiftLeft" value="Shift" readonly>
+				<input class="key row4 alted" id="AltedKeyZ" name="AltedKeyZ">
+				<input class="key row4 alted" id="AltedKeyX" name="AltedKeyX">
+				<input class="key row4 alted" id="AltedKeyC" name="AltedKeyC">
+				<input class="key row4 alted" id="AltedKeyV" name="AltedKeyV">
+				<input class="key row4 alted" id="AltedKeyB" name="AltedKeyB">
+				<input class="key row4 alted" id="AltedKeyN" name="AltedKeyN">
+				<input class="key row4 alted" id="AltedKeyM" name="AltedKeyM">
+				<input class="key row4 alted" id="AltedComma" name="AltedComma">
+				<input class="key row4 alted" id="AltedPeriod" name="AltedPeriod">
+				<input class="key row4 alted" id="AltedSlash" name="AltedSlash">
+				<input class="key row4 alted ShiftRight" value="Shift" readonly>
+				<br />
+				<input class="key row5 alted ControlLeft" value="Ctrl" readonly>
+				<input class="key row5 alted MetaLeft" value="Win" readonly>
+				<input class="key row5 alted AltLeft" value="Alt" readonly>
+				<input class="key row5 alted Space" value = "" readonly>
+				<input class="key row5 alted AltRight" value="Alt" readonly>
+				<input class="key row5 alted MetaRight" value="Win" readonly>
+				<input class="key row5 alted ContextMenu" value="Menu" readonly>
+				<input class="key row5 alted ControlRight" value="Ctrl" readonly>
+			</div>
+			<div id="AltGRKey">
+				<input class="key altgr" id="AltGRBackquote" name="AltGRBackquote">
+				<input class="key altgr" id="AltGRDigit1" name="AltGRDigit1">
+				<input class="key altgr" id="AltGRDigit2" name="AltGRDigit2">
+				<input class="key altgr" id="AltGRDigit3" name="AltGRDigit3">
+				<input class="key altgr" id="AltGRDigit4" name="AltGRDigit4">
+				<input class="key altgr" id="AltGRDigit5" name="AltGRDigit5">
+				<input class="key altgr" id="AltGRDigit6" name="AltGRDigit6">
+				<input class="key altgr" id="AltGRDigit7" name="AltGRDigit7">
+				<input class="key altgr" id="AltGRDigit8" name="AltGRDigit8">
+				<input class="key altgr" id="AltGRDigit9" name="AltGRDigit9">
+				<input class="key altgr" id="AltGRDigit0" name="AltGRDigit0">
+				<input class="key altgr" id="AltGRMinus" name="AltGRMinus">
+				<input class="key altgr" id="AltGREqual" name="AltGREqual">
+				<input class="key altgr Backspace" value="Backspace" readonly>
+				<br />
+				<input class="key row2 altgr Tab" value="Tab" readonly>
+				<input class="key row2 altgr" id="AltGRKeyQ" name="AltGRKeyQ">
+				<input class="key row2 altgr" id="AltGRKeyW" name="AltGRKeyW">
+				<input class="key row2 altgr" id="AltGRKeyE" name="AltGRKeyE">
+				<input class="key row2 altgr" id="AltGRKeyR" name="AltGRKeyR">
+				<input class="key row2 altgr" id="AltGRKeyT" name="AltGRKeyT">
+				<input class="key row2 altgr" id="AltGRKeyY" name="AltGRKeyY">
+				<input class="key row2 altgr" id="AltGRKeyU" name="AltGRKeyU">
+				<input class="key row2 altgr" id="AltGRKeyI" name="AltGRKeyI"> 
+				<input class="key row2 altgr" id="AltGRKeyO" name="AltGRKeyO">
+				<input class="key row2 altgr" id="AltGRKeyP" name="AltGRKeyP">
+				<input class="key row2 altgr" id="AltGRBracketLeft" name="AltGRBracketLeft">
+				<input class="key row2 altgr" id="AltGRBracketRight" name="AltGRBracketRight">
+				<input class="key row2 altgr backslash" id="AltGRBackSlash" name="AltGRBackSlash">
+				<br />
+				<input class="key row3 altgr CapsLock" value="CapsLock" readonly>
+				<input class="key row3 altgr" id="AltGRKeyA" name="AltGRKeyA"> 
+				<input class="key row3 altgr" id="AltGRKeyS" name="AltGRKeyS">
+				<input class="key row3 altgr" id="AltGRKeyD" name="AltGRKeyD">
+				<input class="key row3 altgr" id="AltGRKeyF" name="AltGRKeyF">
+				<input class="key row3 altgr" id="AltGRKeyG" name="AltGRKeyG">
+				<input class="key row3 altgr" id="AltGRKeyH" name="AltGRKeyH">
+				<input class="key row3 altgr" id="AltGRKeyJ" name="AltGRKeyJ">
+				<input class="key row3 altgr" id="AltGRKeyK" name="AltGRKeyK">
+				<input class="key row3 altgr" id="AltGRKeyL" name="AltGRKeyL">
+				<input class="key row3 altgr" id="AltGRSemicolon" name="AltGRSemicolon">
+				<input class="key row3 altgr" id="AltGRQuote" name="AltGRQuote">
+				<input class="key row3 altgr Enter" value="Enter" readonly>
+				<br />
+				<input class="key row4 altgr ShiftLeft" value="Shift" readonly>
+				<input class="key row4 altgr" id="AltGRKeyZ" name="AltGRKeyZ">
+				<input class="key row4 altgr" id="AltGRKeyX" name="AltGRKeyX">
+				<input class="key row4 altgr" id="AltGRKeyC" name="AltGRKeyC">
+				<input class="key row4 altgr" id="AltGRKeyV" name="AltGRKeyV">
+				<input class="key row4 altgr" id="AltGRKeyB" name="AltGRKeyB">
+				<input class="key row4 altgr" id="AltGRKeyN" name="AltGRKeyN">
+				<input class="key row4 altgr" id="AltGRKeyM" name="AltGRKeyM">
+				<input class="key row4 altgr" id="AltGRComma" name="AltGRComma">
+				<input class="key row4 altgr" id="AltGRPeriod" name="AltGRPeriod">
+				<input class="key row4 altgr" id="AltGRSlash" name="AltGRSlash">
+				<input class="key row4 altgr ShiftRight" value="Shift" readonly>
+				<br />
+				<input class="key row5 altgr ControlLeft" value="Ctrl" readonly>
+				<input class="key row5 altgr MetaLeft" value="Win" readonly>
+				<input class="key row5 altgr AltLeft" value="Alt" readonly>
+				<input class="key row5 altgr Space" value = "" readonly>
+				<input class="key row5 altgr AltRight" value="Alt" readonly>
+				<input class="key row5 altgr MetaRight" value="Win" readonly>
+				<input class="key row5 altgr ContextMenu" value="Menu" readonly>
+				<input class="key row5 altgr ControlRight" value="Ctrl" readonly>
+			</div>
+		</div>
+
+		<input type="submit" form="collectData" id="mainsubmitbtn">
+
+	</form>
+
+	<script src="script.js"> </script>
+
+</body>
+</html>
