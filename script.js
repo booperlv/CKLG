@@ -138,6 +138,5 @@ for (let i = 0; i < allinputs.length; i++) {
 	}
 }
 
-
 //Need to Add Arrow Functionality
 //Need to add automatic shift and caps lock generator
