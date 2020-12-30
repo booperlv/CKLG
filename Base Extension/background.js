@@ -17,7 +17,7 @@ limitations under the License.
 var contextID = 0;
 
 var lut = {
-	KeyW: ["w", "W", "W", "", ""]
+	KeyW: ["w", "W", "W", "", ""],
 	KeyE: ["e", "E", "E", "", ""],
 	KeyR: ["r", "R", "R", "", ""],
 	KeyT: ["t", "T", "T", "", ""],

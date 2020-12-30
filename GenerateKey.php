@@ -380,8 +380,6 @@ chrome.input.ime.onDeactivated.addListener(function (engineID) {
 });
 
 chrome.input.ime.onKeyEvent.addListener(function (engineID, keyData) {
-  var handled = false;
-chrome.input.ime.onKeyEvent.addListener(function (engineID, keyData) {
 	var handled = false;
 	if (keyData.type == "keydown") {
 		//Check Modifier State Function and Variable
