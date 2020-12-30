@@ -281,7 +281,7 @@ const AutomateShiftCaps = (char, state) => {
 	}
 }
 
-document.getElementById('AutoShiftCaps').addEventListener('click', function(event) {
+document.getElementById('AutoShiftCaps').addEventListener('click', function(AutoShiftEvent) {
 	var Backquote = document.getElementById('Backquote').value;
 	var Digit1 = document.getElementById('Digit1').value;
 	var Digit2 = document.getElementById('Digit2').value;
@@ -520,7 +520,7 @@ document.getElementById('AutoShiftCaps').addEventListener('click', function(even
 	CapsLockedPeriod.value = AutomateShiftCaps(Period, "caps");
 	ShiftedSlash.value = AutomateShiftCaps(Slash, "shift");
 	CapsLockedSlash.value = AutomateShiftCaps(Slash, "caps");
-	event.preventDefault();
+	AutoShiftEvent.preventDefault();
 	return;
 })
 
@@ -528,14 +528,14 @@ document.getElementById('AutoShiftCaps').addEventListener('click', function(even
 var allinputs = document.querySelectorAll('input');
 for (let i = 0; i < allinputs.length; i++) {
 	const nowinputs = allinputs[i];
-	nowinputs.addEventListener('keydown', function (mainevent) {
-		globalThis.parentparam = mainevent;
-		if (mainevent.key == "Enter") {
-			mainevent.preventDefault()
+	nowinputs.addEventListener('keydown', function (inputdownevent) {
+		globalThis.parentparam = inputdownevent;
+		if (inputdownevent.key == "Enter") {
+			inputdownevent.preventDefault()
 			return false;
 		}
 		//RightArrow
-		if (mainevent.key == "ArrowRight") {
+		if (inputdownevent.key == "ArrowRight") {
 			let now = nowinputs;
 			let next = now.nextElementSibling;
 			next.focus();
@@ -544,22 +544,29 @@ for (let i = 0; i < allinputs.length; i++) {
 			}
 		}
 		//LeftArrow 
-		if (mainevent.key == "ArrowLeft") {
+		if (inputdownevent.key == "ArrowLeft") {
 			let now = nowinputs;
 			let previous = now.previousElementSibling;
 			previous.focus();
 			if (document.activeElement !== previous) {
 				previous.previousElementSibling.focus();
 			}
+			inputdownevent.preventDefault();
 		}
 	})
+
+
+
 	//Readonly set color
 	if (nowinputs.readOnly == true) {
 		nowinputs.style.backgroundColor = 'darkgrey';
 	}
+
+
 	//Skip Modifiers
-	nowinputs.addEventListener('focus', function(ev) {
-		if (parentparam.key == "ArrowRight") {
+	nowinputs.addEventListener('focus', function() {
+	
+		if (parentparam.key == "ArrowRight" || parentparam.key == "Tab") {
 				if (nowinputs.readOnly == true) {
 					if (nowinputs.nextElementSibling.readOnly == true) {
 						nowinputs.nextElementSibling.nextElementSibling.focus();
@@ -570,7 +577,7 @@ for (let i = 0; i < allinputs.length; i++) {
 					return;
 				}
 		} 
-		if (parentparam.key == "ArrowLeft") {
+		if (parentparam.key == "ArrowLeft" || (parentparam.shiftKey && parentparam.keyCode == "9")) {
 			if (nowinputs.readOnly == true) {
 				if (nowinputs.previousElementSibling.readOnly == true) {
 					nowinputs.previousElementSibling.previousElementSibling.focus();
@@ -581,25 +588,27 @@ for (let i = 0; i < allinputs.length; i++) {
 				return;
 			}
 		}
-
+	
 		if (nowinputs.value == "Backspace" || nowinputs.value == "Enter") {
-			if (parentparam.key == "ArrowRight") {
+			if (parentparam.key == "ArrowRight" || parentparam.key == "Tab" && parentparam.shiftKey == false) {
 				nowinputs.blur();
 				nowinputs.nextElementSibling.nextElementSibling.focus();
 			}
-			if (parentparam.key == "ArrowLeft") {
+			if (parentparam.key == "ArrowLeft" || (parentparam.shiftKey && parentparam.keyCode == "9")) {
 				nowinputs.blur();
 				nowinputs.previousElementSibling.focus();
+				return;
 			}
 		}
 		if (nowinputs.value == "Tab" || nowinputs.value == "Shift" || nowinputs.value == "CapsLock") {
-			if (parentparam.key == "ArrowRight") {
+			if (parentparam.key == "ArrowRight" || parentparam.key == "Tab" && parentparam.shiftKey == false) {
 				nowinputs.blur();
 				nowinputs.nextElementSibling.focus();
 			}
-			if (parentparam.key == "ArrowLeft") {
+			if (parentparam.key == "ArrowLeft" || (parentparam.shiftKey && parentparam.keyCode == "9")) {
 				nowinputs.blur();
 				nowinputs.previousElementSibling.previousElementSibling.focus();
+				return;
 			}
 		}
 	})
