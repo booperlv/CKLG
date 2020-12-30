@@ -542,6 +542,7 @@ for (let i = 0; i < allinputs.length; i++) {
 			if (document.activeElement !== next) {
 				next.nextElementSibling.focus();
 			}
+			now.onfocus = this.value = this.value;
 		}
 		//LeftArrow 
 		if (inputdownevent.key == "ArrowLeft") {
