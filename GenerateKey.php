@@ -14,11 +14,11 @@ function checkSpecial($KeyLayer) {
     } 
 }
 
-function insertToArrayFormat ($code, $plain, $shift, $alt, $caps) {
-	return $code . ': [' . checkSpecial($plain) . ',' . checkSpecial($shift) . ',' . checkSpecial($alt) . ',' . checkSpecial($caps) . '], ';
+function insertToArrayFormat ($code, $plain, $shift, $caps, $alt, $altgr) {
+	return $code . ': [' . checkSpecial($plain) . ',' . checkSpecial($shift) . ',' . checkSpecial($caps) . ',' . checkSpecial($alt) . ',' .checkSpecial($altgr) . '],';
 }
-function insertToNoCodeFormat ($plain, $shift, $alt, $caps) {
-	return '[' . checkSpecial($plain) . ',' . checkSpecial($shift) . ',' . checkSpecial($alt) . ',' . checkSpecial($caps) . ']';
+function insertToNoCodeFormat ($plain, $shift, $caps, $alt, $altgr) {
+	return '[' . checkSpecial($plain) . ',' . checkSpecial($shift) . ',' . checkSpecial($caps) . ',' . checkSpecial($alt) . ',' . checkSpecial($altgr) . ']';
 }
 //Declare Variables
 //Plain Layer
@@ -395,7 +395,7 @@ chrome.input.ime.onKeyEvent.addListener(function (engineID, keyData) {
 			}
 			if (modifier.altgrKey === true) {
 				return 4;
-			}
+      }
 			else {
 				return 0;
 			}
