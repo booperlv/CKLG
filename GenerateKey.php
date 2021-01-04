@@ -339,6 +339,7 @@ insertToArrayFormat('KeyO', $KeyO, $ShiftKeyO, $CapsLockKeyO, $AltKeyO, $AltGRKe
 insertToArrayFormat('KeyP', $KeyP, $ShiftKeyP, $CapsLockKeyP, $AltKeyP, $AltGRKeyP) .
 insertToArrayFormat('BracketLeft', $BracketLeft, $ShiftBracketLeft, $CapsLockBracketLeft, $AltBracketLeft, $AltGRBracketLeft) .
 insertToArrayFormat('BracketRight', $BracketRight, $ShiftBracketRight, $CapsLockBracketRight, $AltBracketRight, $AltGRBracketRight) .
+insertToArrayFormat('Backslash', $BackSlash, $ShiftBackSlash, $CapsLockBackSlash, $AltBackSlash, $AltGRBackSlash) .
 
 insertToArrayFormat('KeyA', $KeyA, $ShiftKeyA, $CapsLockKeyA, $AltKeyA, $AltGRKeyA) .
 insertToArrayFormat('KeyS', $KeyS, $ShiftKeyS, $CapsLockKeyS, $AltKeyS, $AltGRKeyS) .
@@ -401,52 +402,6 @@ chrome.input.ime.onKeyEvent.addListener(function (engineID, keyData) {
 			}
 		}
 	let checkstate = checkKeyState(keyData);
-
-    //BackSlash Key Press
-    if (keyData.keyCode == 220) {
-      let backslash = ' . insertToNoCodeFormat($BackSlash, $ShiftBackSlash, $CapsLockBackSlash, $AltBackSlash, $AltGRBackSlash) .
-			'
-			let backslashkey = backslash[checkstate];
-
-      if (backslashkey == "\\\") {
-        backslashkey = backslashkey.substring(1);
-        if (backslashkey != null && contextID != 0) {
-          chrome.input.ime.commitText(
-            {
-              contextID: contextID,
-              text: backslashkey,
-            },
-            () => {
-              if (chrome.runtime.lastError) {
-                console.error(
-                  "Error committing text:",
-                  chrome.runtime.lastError
-                );
-                return;
-              }
-            }
-          );
-				}
-      } else {
-				if (backslashkey != null && contextID != 0) {
-          chrome.input.ime.commitText(
-            {
-              contextID: contextID,
-              text: backslashkey,
-            },
-            () => {
-              if (chrome.runtime.lastError) {
-                console.error(
-                  "Error committing text:",
-                  chrome.runtime.lastError
-                );
-                return;
-              }
-            }
-          );
-				}
-			}
-    }
 
     //Main Key Press Handler
     if (lut[keyData.code]) {
