@@ -1,5 +1,4 @@
 {
-
   "name": "default-name",
 	"description": "custom keyboard layout",
 	//Don't touch from this point unless you know what you're doing
@@ -22,7 +21,6 @@
 			//before doing anything in these next two lines.
       "language": "en-US",
       "layouts": ["us"]
-			
     }
   ]
 }
