@@ -1,0 +1,28 @@
+{
+
+  "name": "default-name",
+	"description": "custom keyboard layout",
+	//Don't touch from this point unless you know what you're doing
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "input"
+  ],
+  "input_components": [
+    {
+			"type": "ime",
+			//You can touch things again
+      "name": "default-name",
+      "id": "default-name",
+      "description": "custom keyboard layout",
+			//take a look here https://developers.google.com/admin-sdk/directory/v1/languages/
+			//before doing anything in these next two lines.
+      "language": "en-US",
+      "layouts": ["us"]
+			
+    }
+  ]
+}
